@@ -56,11 +56,44 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(
         title: const Text('Custom AppBar'),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.menu),
           onPressed: () {
-            Navigator.pop(context);
+            // Navigator.pop(context);
           },
         ),
+        actions: <Widget>[
+          IconButton(
+            padding: const EdgeInsets.only(right: 32.0),
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              // 这里添加你的搜索功能的代码
+              //弹框
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: const Text('Search'),
+                    content: const Text('Search your content here.'),
+                    actions: <Widget>[
+                      TextButton(
+                        child: const Text('Cancel'),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                      TextButton(
+                        child: const Text('Confirm'),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+          ),
+        ],
       ),
     );
   }

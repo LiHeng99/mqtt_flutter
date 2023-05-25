@@ -54,5 +54,17 @@ List<Post> posts = const [
     content: 'This is the content of post 2.',
     views: 200,
   ),
+  Post(
+    title: 'Post 3',
+    author: 'Author 3',
+    content: 'This is the content of post 3.',
+    views: 300,
+  ),
+  Post(
+    title: 'Post 3',
+    author: 'Author 3',
+    content: 'This is the content of post 3.',
+    views: 300,
+  )
   // Add more posts...
 ];
