@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mqtt/pages/home/chat_page.dart';
 
 class PostCard extends StatelessWidget {
   final String title;
@@ -18,30 +19,41 @@ class PostCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(title, style: Theme.of(context).textTheme.headline5),
-            SizedBox(height: 8.0),
-            Text('By $author', style: Theme.of(context).textTheme.subtitle1),
-            SizedBox(height: 8.0),
-            Text(content, maxLines: 3, overflow: TextOverflow.ellipsis),
-            SizedBox(height: 8.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text('$views views',
-                    style: Theme.of(context).textTheme.caption),
-                IconButton(
-                  icon: Icon(Icons.delete),
-                  onPressed: onDelete,
-                ),
-              ],
-            ),
-          ],
+    return GestureDetector(
+      // add GestureDetector here
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ChatPage(appBarTitle: title),
+          ),
+        );
+      },
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(title, style: Theme.of(context).textTheme.headline5),
+              SizedBox(height: 8.0),
+              Text('By $author', style: Theme.of(context).textTheme.subtitle1),
+              SizedBox(height: 8.0),
+              Text(content, maxLines: 3, overflow: TextOverflow.ellipsis),
+              SizedBox(height: 8.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text('$views views',
+                      style: Theme.of(context).textTheme.caption),
+                  IconButton(
+                    icon: const Icon(Icons.clear),
+                    onPressed: onDelete,
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

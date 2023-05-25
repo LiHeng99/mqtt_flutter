@@ -6,6 +6,7 @@ class BottomNavigation extends StatefulWidget {
   BottomNavigation({required this.onTabSelected});
 
   @override
+  // ignore: library_private_types_in_public_api
   _BottomNavigationState createState() => _BottomNavigationState();
 }
 
@@ -17,26 +18,26 @@ class _BottomNavigationState extends State<BottomNavigation> {
     return BottomNavigationBar(
       currentIndex: _currentIndex,
       type: BottomNavigationBarType.fixed,
-      items: [
+      items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
-          label: '首页',
+          label: '连接',
         ),
         BottomNavigationBarItem(
-          icon: const Icon(Icons.star),
-          label: '关注',
+          icon: Icon(Icons.star),
+          label: '列表',
         ),
         BottomNavigationBarItem(
-          icon: const Icon(Icons.add_box),
-          label: '创建',
+          icon: Icon(Icons.add_box),
+          label: '创建连接',
         ),
         BottomNavigationBarItem(
-          icon: const Icon(Icons.card_membership),
+          icon: Icon(Icons.card_membership),
           label: '会员',
         ),
         BottomNavigationBarItem(
-          icon: const Icon(Icons.person),
-          label: '我的',
+          icon: Icon(Icons.person),
+          label: '设置',
         ),
       ],
       onTap: (index) {

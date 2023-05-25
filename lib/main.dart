@@ -7,10 +7,12 @@ import 'package:mqtt/pages/my_page.dart';
 import 'package:mqtt/widgets/bottom_navigation.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,8 +38,8 @@ class _MainPageState extends State<MainPage> {
     HomePage(),
     FavoritesPage(),
     CreateContentPage(),
-    MembershipPage(),
-    MyPage(),
+    const MembershipPage(),
+    const MyPage(),
   ];
 
   @override
@@ -52,9 +54,9 @@ class _MainPageState extends State<MainPage> {
         },
       ),
       appBar: AppBar(
-        title: Text('Custom AppBar'),
+        title: const Text('Custom AppBar'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },

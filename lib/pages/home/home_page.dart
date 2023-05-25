@@ -5,9 +5,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('首页'),
-      ),
+      // appBar: AppBar(
+      //   title: Text('首页'),
+      // ),
       body: ListView.builder(
         itemCount: posts.length, // Assuming 'posts' is your data array
         itemBuilder: (context, index) {
